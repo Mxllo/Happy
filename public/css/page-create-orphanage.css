@@ -1,0 +1,64 @@
+#page-create-orphanage {
+    display: flex;
+    min-height: 100vw;
+  }
+  
+main{
+    flex:1;
+}
+
+.map-container{
+    margin:0 0 4rem;
+
+}
+
+.map-container .leaflet-container{
+    border-radius: 20px 20px 0 0 ;
+    cursor: pointer;
+}
+
+.map-container footer{
+    background-color: #F5f8fa;
+    border-radius: 0 0 20px 20px;
+    font-weight: 700;
+    line-height:2rem;
+    padding: 1.5rem;
+}
+
+.leaflet-popup-content a {
+    width: 3rem;
+    height: 3rem;
+    background: #15c3d6;
+    box-shadow: 17.2868px 27.6589px 41.4884px rgba(23, 142, 166, 0.16);
+    border-radius: 20rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem;
+  
+    transition: background-color 0.2s;
+  }
+  
+  .leaflet-popup-content a:hover {
+      background: #17d6eb
+  }
+
+
+  .leaflet-container{
+    font: 400 1.4rem/1 'Nunito', sans-serif;
+    z-index: 5;
+
+}
+
+.leaflet-popup-content {
+    color: #0089a5;
+    margin: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .leaflet-popup-tip{
+    display: none;
+}
+
