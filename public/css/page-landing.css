@@ -58,7 +58,7 @@ main h1 {
 }
 
 /* desktop version */
-@media (min-width: 760px) {
+@media (min-width: 480px) {
   #container {
     padding: 5rem 3rem;
     /* shorthand background: image repeat position / size */

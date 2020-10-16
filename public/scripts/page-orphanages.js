@@ -11,22 +11,39 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'your.mapbox.access.token'
 }).addTo(map);
 
+
+const icon = L.icon({
+    iconUrl: '/images/map-marker.svg',
+    iconSize: [58, 68],
+    iconAnchor: [29, 68],
+    popupAnchor: [170,2]
+});
+
+
+function addMarker({id, name, lat, lng}){
 //create popup
 const popup = L.popup({
     closeButton: false,
     className: 'map-popup',
     minWidth: 240,
     minHeight: 240
-}).setContent('Lar das Meninas <a href="orphanage.html?id=1" class="choose-orphanage"> <img src="./public/images/arrow-white.svg"> </a>');
+    //crase diz que posso inserir dados dinamicos
+}).setContent(`${name}<a href="orphanage?id=${id}"> <img src="/images/arrow-white.svg"> </a>`);
 
-//create market
-const icon = L.icon({
-    iconUrl: './public/images/map-marker.svg',
-    iconSize: [58, 68],
-    iconAnchor: [29, 68],
-    popupAnchor: [170,2]
-})
-
-L.marker([-23.53, -46.20], { icon: icon})
+L.marker([lat, lng], { icon: icon})
     .addTo(map)
-    .bindPopup(popup)
+    .bindPopup(popup);
+}
+
+const orphanagesSpan = document.querySelectorAll('.orphanages span')
+orphanagesSpan.forEach(span => {
+  const orphanage = {
+      id: span.dataset.id,
+      name: span.dataset.name,
+      lat: span.dataset.lat,
+      lng: span.dataset.lng
+  }
+  console.log("Orfanato:"+orphanage.id+"  lido")
+  console.log("Orfanato:"+orphanage.lat+orphanage.lng)
+  addMarker(orphanage);
+});

@@ -85,8 +85,14 @@ form {
     margin-top: 2.4rem;
     margin-bottom: 8rem;
     cursor: pointer;
+
+    transition: background-color 0.2s;
   }
  
+  .input-block.images button:hover{
+    background: #15c3d617;
+  }
+
   #txtarea {
     height: 18rem;
     overflow: hidden;
@@ -110,6 +116,16 @@ form {
     align-items: center;
     padding: 0.5rem;
     cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.new-upload span:hover{
+    background: #ffd3d3;
+}
+
+.new-upload + .new-upload {
+  margin-top: 2.4rem;
 }
 
 .input-block textarea:valid,

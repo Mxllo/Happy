@@ -6,8 +6,9 @@ const options = ({
     scrollWheelZoom: false,
     zoomControl: false
 })
-
-const map = L.map('mapid', options).setView([-23.53, -46.20], 14);
+const lat = document.querySelector("span[data-lat]").dataset.lat
+const lng = document.querySelector("span[data-lng]").dataset.lng
+const map = L.map('mapid', options).setView([lat,lng], 15);
 
 //attach map 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXhsbG8iLCJhIjoiY2tnOGU0NDFvMGc2bDJ5bXUxOXZ2enUzMyJ9.6t7THDi-ZqakqLhS_bmS0A', {
@@ -22,13 +23,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 //create marker
 const icon = L.icon({
-    iconUrl: './public/images/map-marker.svg',
+    iconUrl: '/images/map-marker.svg',
     iconSize: [58, 68],
     iconAnchor: [29, 68],
     popupAnchor: [170,2]
 })
 
-L.marker([-23.53, -46.20], { icon })
+L.marker([lat,lng], { icon })
 .addTo(map)
 
 
